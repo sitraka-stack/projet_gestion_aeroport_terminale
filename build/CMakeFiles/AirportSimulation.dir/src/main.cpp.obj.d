@@ -157,17 +157,6 @@ CMakeFiles/AirportSimulation.dir/src/main.cpp.obj: \
  C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_memory_defs.h \
  C:/msys64/ucrt64/include/c++/15.2.0/pstl/execution_defs.h \
  C:/msys64/ucrt64/include/c++/15.2.0/ctime \
- C:/msys64/ucrt64/include/c++/15.2.0/thread \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/std_thread.h \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/this_thread_sleep.h \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/chrono.h \
- C:/msys64/ucrt64/include/c++/15.2.0/ratio \
- C:/msys64/ucrt64/include/c++/15.2.0/cstdint \
- C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
- C:/msys64/ucrt64/include/stdint.h \
- C:/msys64/ucrt64/include/c++/15.2.0/limits \
- C:/msys64/ucrt64/include/c++/15.2.0/bits/parse_numbers.h \
- C:/msys64/ucrt64/include/c++/15.2.0/chrono \
  C:\Users\Sitraka\Desktop\c++\ projects\src\Aeroport.h \
  C:/msys64/ucrt64/include/c++/15.2.0/queue \
  C:/msys64/ucrt64/include/c++/15.2.0/deque \
@@ -179,4 +168,67 @@ CMakeFiles/AirportSimulation.dir/src/main.cpp.obj: \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/vector.tcc \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_heap.h \
  C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_queue.h \
- C:\Users\Sitraka\Desktop\c++\ projects\src\Avion.h
+ C:\Users\Sitraka\Desktop\c++\ projects\src\Avion.h \
+ C:/Users/Sitraka/Desktop/C__PRO~1/build/_deps/FTXUI-~2/include/ftxui/component/component.hpp \
+ C:/msys64/ucrt64/include/c++/15.2.0/functional \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/std_function.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/unordered_map \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_map.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/hashtable.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/hashtable_policy.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/enable_special_members.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/node_handle.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/erase_if.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/array \
+ C:/msys64/ucrt64/include/c++/15.2.0/compare \
+ C:/msys64/ucrt64/include/c++/15.2.0/utility \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_relops.h \
+ C:/Users/Sitraka/Desktop/C__PRO~1/build/_deps/FTXUI-~2/include/ftxui/component/component_base.hpp \
+ C:/Users/Sitraka/Desktop/C__PRO~1/build/_deps/FTXUI-~2/include/ftxui/component/captured_mouse.hpp \
+ C:/Users/Sitraka/Desktop/C__PRO~1/build/_deps/FTXUI-~2/include/ftxui/dom/elements.hpp \
+ C:/Users/Sitraka/Desktop/C__PRO~1/build/_deps/FTXUI-~2/include/ftxui/dom/canvas.hpp \
+ C:/Users/Sitraka/Desktop/C__PRO~1/build/_deps/FTXUI-~2/include/ftxui/screen/color.hpp \
+ C:/msys64/ucrt64/include/c++/15.2.0/cstdint \
+ C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stdint.h \
+ C:/msys64/ucrt64/include/stdint.h \
+ C:/Users/Sitraka/Desktop/C__PRO~1/build/_deps/FTXUI-~2/include/ftxui/screen/screen.hpp \
+ C:/Users/Sitraka/Desktop/C__PRO~1/build/_deps/FTXUI-~2/include/ftxui/screen/box.hpp \
+ C:/Users/Sitraka/Desktop/C__PRO~1/build/_deps/FTXUI-~2/include/ftxui/screen/terminal.hpp \
+ C:/Users/Sitraka/Desktop/C__PRO~1/build/_deps/FTXUI-~2/include/ftxui/dom/direction.hpp \
+ C:/Users/Sitraka/Desktop/C__PRO~1/build/_deps/FTXUI-~2/include/ftxui/dom/flexbox_config.hpp \
+ C:/Users/Sitraka/Desktop/C__PRO~1/build/_deps/FTXUI-~2/include/ftxui/dom/linear_gradient.hpp \
+ C:/msys64/ucrt64/include/c++/15.2.0/optional \
+ C:/Users/Sitraka/Desktop/C__PRO~1/build/_deps/FTXUI-~2/include/ftxui/dom/node.hpp \
+ C:/Users/Sitraka/Desktop/C__PRO~1/build/_deps/FTXUI-~2/include/ftxui/dom/requirement.hpp \
+ C:/Users/Sitraka/Desktop/C__PRO~1/build/_deps/FTXUI-~2/include/ftxui/util/ref.hpp \
+ C:/Users/Sitraka/Desktop/C__PRO~1/build/_deps/FTXUI-~2/include/ftxui/screen/string.hpp \
+ C:/Users/Sitraka/Desktop/C__PRO~1/build/_deps/FTXUI-~2/include/ftxui/screen/deprecated.hpp \
+ C:/msys64/ucrt64/include/c++/15.2.0/variant \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/monostate.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/parse_numbers.h \
+ C:/Users/Sitraka/Desktop/C__PRO~1/build/_deps/FTXUI-~2/include/ftxui/dom/take_any_args.hpp \
+ C:/Users/Sitraka/Desktop/C__PRO~1/build/_deps/FTXUI-~2/include/ftxui/dom/deprecated.hpp \
+ C:/Users/Sitraka/Desktop/C__PRO~1/build/_deps/FTXUI-~2/include/ftxui/component/component_options.hpp \
+ C:/msys64/ucrt64/include/c++/15.2.0/chrono \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/chrono.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/ratio \
+ C:/msys64/ucrt64/include/c++/15.2.0/limits \
+ C:/Users/Sitraka/Desktop/C__PRO~1/build/_deps/FTXUI-~2/include/ftxui/component/animation.hpp \
+ C:/Users/Sitraka/Desktop/C__PRO~1/build/_deps/FTXUI-~2/include/ftxui/component/event.hpp \
+ C:/Users/Sitraka/Desktop/C__PRO~1/build/_deps/FTXUI-~2/include/ftxui/component/mouse.hpp \
+ C:/Users/Sitraka/Desktop/C__PRO~1/build/_deps/FTXUI-~2/include/ftxui/component/screen_interactive.hpp \
+ C:/msys64/ucrt64/include/c++/15.2.0/atomic \
+ C:/Users/Sitraka/Desktop/C__PRO~1/build/_deps/FTXUI-~2/include/ftxui/component/receiver.hpp \
+ C:/msys64/ucrt64/include/c++/15.2.0/algorithm \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algo.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/algorithmfwd.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/uniform_int_dist.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/condition_variable \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/std_mutex.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/unique_lock.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/mutex \
+ C:/msys64/ucrt64/include/c++/15.2.0/thread \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/std_thread.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/this_thread_sleep.h \
+ C:/Users/Sitraka/Desktop/C__PRO~1/build/_deps/FTXUI-~2/include/ftxui/component/task.hpp

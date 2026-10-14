@@ -1,7 +1,10 @@
 {
 	"InstallScripts" : 
 	[
-		"C:/Users/Sitraka/Desktop/c++ projects/build/cmake_install.cmake"
+		"C:/Users/Sitraka/Desktop/c++ projects/build/cmake_install.cmake",
+		"C:/Users/Sitraka/Desktop/c++ projects/build/_deps/ftxui-build/cmake_install.cmake",
+		"C:/Users/Sitraka/Desktop/c++ projects/build/_deps/ftxui-build/examples/cmake_install.cmake",
+		"C:/Users/Sitraka/Desktop/c++ projects/build/_deps/ftxui-build/doc/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

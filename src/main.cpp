@@ -2,101 +2,96 @@
 #include <memory>
 #include <cstdlib>
 #include <ctime>
-#include <thread>
-#include <chrono>
 #include "Aeroport.h"
 
-void afficherInterfaceUtilisateur() {
-    std::cout << "\n==================================================\n";
-    std::cout << "       TOUR DE CONTRÔLE - SIMULATION PRO          \n";
-    std::cout << "==================================================\n";
-    std::cout << "1. Enregistrer un vol commercial en approche\n";
-    std::cout << "2. Déclencher une urgence critique (Panne carburant)\n";
-    std::cout << "3. Enregistrer un avion prêt au décollage au sol\n";
-    std::cout << "4. Faire avancer le temps d'un tour unique\n";
-    std::cout << "5. 🚀 Lancer la simulation automatique en continu\n";
-    std::cout << "6. Quitter et générer le rapport de fin\n";
-    std::cout << "--------------------------------------------------\n";
-    std::cout << "Votre choix (1 à 6) : ";
-}
+#include "ftxui/component/component.hpp"
+#include "ftxui/component/screen_interactive.hpp"
+#include "ftxui/dom/elements.hpp"
+
+using namespace ftxui;
 
 int main() {
     srand(static_cast<unsigned int>(time(nullptr)));
 
-    // Aéroport avec 2 pistes et 3 places de parking maximum
-    Aeroport aeroport(2, 3);
-    int choixUtilisateur = 0;
-    int compteurVol = 200;
+    Aeroport aeroport(4, 8);
+    int idVol = 200;
+    const std::string compagnies[] = {"Air Madagascar", "Air France", "Kenya Airways", "Ethiopian", "Cargo Express"};
 
-    const std::string compagnies[] = {"Air Madagascar", "Air France", "Kenya Airways", "Ethiopian Airlines", "Cargo Fret Express"};
+    int selected_option = 0;
+    std::vector<std::string> option_list = {
+        "Ajouter un vol en approche",
+        "Declencher une urgence (carburant critique)",
+        "Ajouter un vol au parking (decollage)",
+        "Executer un tour de controle",
+        "Quitter"
+    };
 
-    do {
-        std::cout << "\n--------------------------------------------------\n";
-        std::cout << " TABLEAU DE BORD EN TEMPS RÉEL :\n";
-        std::cout << "- 🚨 Urgences en approche (Carburant critique) : " << aeroport.compterUrgences() << "\n";
-        std::cout << "- ✈️  Avions en attente d'atterrissage normal   : " << aeroport.compterAtterrissagesNormaux() << "\n";
-        std::cout << "- 🛫 Avions au sol en attente de décollage     : " << aeroport.compterDecollages() << "\n";
-        std::cout << "- 🅿️  Places de parking disponibles (Tarmac)    : " << aeroport.obtenirPlacesParkingLibres() << " / 3\n";
-        std::cout << "- 📊 Bilan : " << aeroport.obtenirTotalAtterris() << " atterrissages | " 
-                  << aeroport.obtenirTotalDecolles() << " décollages | " 
-                  << aeroport.obtenirTotalIncidents() << " urgences sauvées.\n";
+    auto menu = Menu(&option_list, &selected_option);
+    auto screen = ScreenInteractive::TerminalOutput();
 
-        afficherInterfaceUtilisateur();
-        
-        if (!(std::cin >> choixUtilisateur)) {
-            break;
+    auto component = CatchEvent(menu, [&](Event event) {
+        if (event == Event::Return) {
+            if (selected_option == 0) {
+                std::string num = "MDG-" + std::to_string(idVol++);
+                std::string comp = compagnies[rand() % 5];
+                int carb = 60 + (rand() % 41);
+                auto avion = std::make_shared<Avion>(num, comp, TypeAvion::CourtCourrier, carb);
+                aeroport.ajouterAtterissage(avion);
+            } 
+            else if (selected_option == 1) {
+                std::string num = "URG-" + std::to_string(idVol++);
+                std::string comp = compagnies[rand() % 5];
+                int carb = 10 + (rand() % 10);
+                auto avion = std::make_shared<Avion>(num, comp, TypeAvion::CourtCourrier, carb);
+                aeroport.ajouterAtterissage(avion);
+            } 
+            else if (selected_option == 2) {
+                std::string num = "DEP-" + std::to_string(idVol++);
+                std::string comp = compagnies[rand() % 5];
+                int carb = 100;
+                auto avion = std::make_shared<Avion>(num, comp, TypeAvion::LongCourrier, carb);
+                aeroport.ajouterDecollage(avion);
+            } 
+            else if (selected_option == 3) {
+                aeroport.executerTour();
+            } 
+            else if (selected_option == 4) {
+                aeroport.exporterRapport();
+                screen.Exit();
+            }
+            return true;
         }
+        return false;
+    });
 
-        switch (choixUtilisateur) {
-            case 1: {
-                std::string id = "MDG-" + std::to_string(compteurVol++);
-                std::string compagnie = compagnies[rand() % 5];
-                TypeAvion type = (rand() % 2 == 0) ? TypeAvion::CourtCourrier : TypeAvion::LongCourrier;
-                int carburant = 50 + (rand() % 51); // Entre 50% et 100%
-                
-                auto avion = std::make_shared<Avion>(id, compagnie, type, carburant);
-                aeroport.enregistrerDemandeAtterrissage(avion);
-                break;
-            }
-            case 2: {
-                std::string id = "URG-" + std::to_string(compteurVol++);
-                std::string compagnie = compagnies[rand() % 5];
-                int carburantFaible = 10 + (rand() % 10); // Entre 10% et 19%
-                
-                auto avionUrgent = std::make_shared<Avion>(id, compagnie, TypeAvion::CourtCourrier, carburantFaible);
-                aeroport.enregistrerDemandeAtterrissage(avionUrgent);
-                break;
-            }
-            case 3: {
-                std::string id = "DEP-" + std::to_string(compteurVol++);
-                std::string compagnie = compagnies[rand() % 5];
-                auto avionDepart = std::make_shared<Avion>(id, compagnie, TypeAvion::LongCourrier, 100);
-                aeroport.enregistrerDemandeDecollage(avionDepart);
-                break;
-            }
-            case 4: {
-                aeroport.executerTourDeControle();
-                break;
-            }
-            case 5: {
-                std::cout << "\n🚀 Lancement du mode automatique (Appuyez sur Ctrl+C dans le terminal pour stopper).\n";
-                for (int tour = 1; tour <= 5; ++tour) {
-                    std::cout << "\n--- Tour automatique n°" << tour << " ---\n";
-                    aeroport.executerTourDeControle();
-                    // Pause de 2 secondes entre chaque tour pour laisser l'humain lire
-                    std::this_thread::sleep_for(std::chrono::seconds(2));
-                }
-                break;
-            }
-            case 6: {
-                aeroport.genererRapportFichierTxt();
-                std::cout << "\nFermeture de la tour de contrôle. Au revoir !\n";
-                break;
-            }
-            default:
-                std::cout << "\n[Erreur] Option non reconnue. Choisissez entre 1 et 6.\n";
-        }
-    } while (choixUtilisateur != 6);
+    auto renderer = Renderer(component, [&] {
+        return vbox({
+            text("TOUR DE CONTROLE - GESTION D'AEROPORT") | bold | color(Color::Cyan) | center,
+            separator(),
+            hbox({
+                vbox({
+                    text("STATISTIQUES EN TEMPS REEL") | bold,
+                    separator(),
+                    text("Urgences en approche : " + std::to_string(aeroport.getNbUrgences())),
+                    text("Attente atterrissage : " + std::to_string(aeroport.getNbAtterrissages())),
+                    text("Attente decollage    : " + std::to_string(aeroport.getNbDecollages())),
+                    text("Parking libre        : " + std::to_string(aeroport.getParkingLibre()) + " / 8"),
+                }) | border | flex,
+                vbox({
+                    text("BILAN GLOBAL") | bold,
+                    separator(),
+                    text("Atterris : " + std::to_string(aeroport.getTotalAtterris())),
+                    text("Decolles : " + std::to_string(aeroport.getTotalDecolles())),
+                    text("Urgences : " + std::to_string(aeroport.getTotalUrgences())),
+                }) | border | flex,
+            }),
+            separator(),
+            text("Utilisez les fleches HAUT/BAS pour choisir et ENTREE pour valider :") | dim,
+            menu->Render() | border,
+        }) | border;
+    });
+
+    screen.Loop(renderer);
 
     return 0;
 }

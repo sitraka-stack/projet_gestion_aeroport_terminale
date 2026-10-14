@@ -1,0 +1,6 @@
+RAPPORT DE FIN DE SIMULATION
+----------------------------
+Atterrisages reussis : 0
+Decollages effectues : 0
+Urgences gerees      : 0
+Avions encore au sol : 0

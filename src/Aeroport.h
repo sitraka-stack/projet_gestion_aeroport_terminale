@@ -5,47 +5,45 @@
 #include <string>
 #include "Avion.h"
 
-enum class ConditionMeteo {
-    GrandSoleil,
-    PluieFine,
-    OrageViolent
+enum class Meteo {
+    Clair,
+    Pluie,
+    Orage
 };
 
 class Aeroport {
 private:
-    std::vector<std::shared_ptr<Avion>> fileUrgenceAtterrissage;
-    std::queue<std::shared_ptr<Avion>> fileAttenteAtterrissagesNormaux;
-    std::queue<std::shared_ptr<Avion>> fileAttenteDecollages;
+    std::vector<std::shared_ptr<Avion>> fileUrgences;
+    std::queue<std::shared_ptr<Avion>> fileAtterrissages;
+    std::queue<std::shared_ptr<Avion>> fileDecollages;
     
-    // Gestion des places de parking (Portes de tarmac)
-    int capaciteTotaleParking;
-    int placesParkingOccupees;
-
-    int nombrePistesDisponibles;
-    int totalAvionsAtterris;
-    int totalAvionsDecolles;
-    int totalIncidentsEvites;
-    ConditionMeteo meteoActuelle;
+    int capaciteParking;
+    int parkingOccupe;
+    int pistesDisponibles;
+    
+    int totalAtterris;
+    int totalDecolles;
+    int totalUrgencesTraitees;
+    Meteo meteoActuelle;
 
 public:
-    Aeroport(int nombrePistes = 2, int capaciteParking = 3);
+    Aeroport(int pistes = 4, int parking = 8);
     
-    void enregistrerDemandeAtterrissage(std::shared_ptr<Avion> avion);
-    void enregistrerDemandeDecollage(std::shared_ptr<Avion> avion);
+    void ajouterAtterissage(std::shared_ptr<Avion> avion);
+    void ajouterDecollage(std::shared_ptr<Avion> avion);
     
-    void changerMeteoAleatoire();
-    std::string obtenirDescriptionMeteo() const;
+    void changerMeteo();
+    std::string getMeteoTexte() const;
     
-    void executerTourDeControle();
-    void libererPlaceParking(); // Libère une place quand un avion décolle
+    void executerTour();
     
-    size_t compterUrgences() const;
-    size_t compterAtterrissagesNormaux() const;
-    size_t compterDecollages() const;
-    int obtenirPlacesParkingLibres() const;
-    int obtenirTotalAtterris() const;
-    int obtenirTotalDecolles() const;
-    int obtenirTotalIncidents() const;
+    size_t getNbUrgences() const;
+    size_t getNbAtterrissages() const;
+    size_t getNbDecollages() const;
+    int getParkingLibre() const;
+    int getTotalAtterris() const;
+    int getTotalDecolles() const;
+    int getTotalUrgences() const;
     
-    void genererRapportFichierTxt() const;
+    void exporterRapport() const;
 };

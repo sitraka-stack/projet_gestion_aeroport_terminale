@@ -8,31 +8,30 @@ enum class TypeAvion {
 };
 
 enum class SituationAvion {
-    EnApprocheDansLeCiel,
-    StationneAuParking,
-    EnRouteVersDestination
+    EnApproche,
+    Stationne,
+    EnRoute
 };
 
 class Avion {
 private:
     std::string numeroVol;
-    std::string compagnieAerienne;
-    TypeAvion typeAvion;
+    std::string compagnie;
+    TypeAvion type;
     SituationAvion situation;
-    int niveauCarburantPourcent;
-    bool estEnUrgenceAbsolue;
+    int carburant;
+    bool urgence;
 
 public:
-    Avion(const std::string &numeroVol, const std::string &compagnie, TypeAvion type, int carburant);
+    Avion(const std::string &num, const std::string &comp, TypeAvion t, int carb);
     
-    std::string obtenirNumeroVol() const;
-    std::string obtenirCompagnie() const;
-    TypeAvion obtenirTypeAvion() const;
-    std::string obtenirTypeAvionTexte() const;
-    SituationAvion obtenirSituation() const;
-    void modifierSituation(SituationAvion nouvelleSituation);
+    std::string getNumeroVol() const;
+    std::string getCompagnie() const;
+    std::string getTypeTexte() const;
+    SituationAvion getSituation() const;
+    void setSituation(SituationAvion sit);
     
-    int obtenirNiveauCarburant() const;
-    void consommerCarburant(); // Décrémente automatiquement
-    bool verifierUrgence() const;
+    int getCarburant() const;
+    void consommerCarburant();
+    bool estUrgent() const;
 };
