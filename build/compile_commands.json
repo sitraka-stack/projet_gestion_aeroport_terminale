@@ -1,0 +1,20 @@
+[
+{
+  "directory": "C:/Users/Sitraka/Desktop/c++ projects/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\AirportSimulation.dir\\src\\main.cpp.obj -c \"C:\\Users\\Sitraka\\Desktop\\c++ projects\\src\\main.cpp\"",
+  "file": "C:/Users/Sitraka/Desktop/c++ projects/src/main.cpp",
+  "output": "CMakeFiles/AirportSimulation.dir/src/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/Sitraka/Desktop/c++ projects/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\AirportSimulation.dir\\src\\Avion.cpp.obj -c \"C:\\Users\\Sitraka\\Desktop\\c++ projects\\src\\Avion.cpp\"",
+  "file": "C:/Users/Sitraka/Desktop/c++ projects/src/Avion.cpp",
+  "output": "CMakeFiles/AirportSimulation.dir/src/Avion.cpp.obj"
+},
+{
+  "directory": "C:/Users/Sitraka/Desktop/c++ projects/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\AirportSimulation.dir\\src\\Aeroport.cpp.obj -c \"C:\\Users\\Sitraka\\Desktop\\c++ projects\\src\\Aeroport.cpp\"",
+  "file": "C:/Users/Sitraka/Desktop/c++ projects/src/Aeroport.cpp",
+  "output": "CMakeFiles/AirportSimulation.dir/src/Aeroport.cpp.obj"
+}
+]
